@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Товары интернет магазина PhoneMarket</h3>
+
+<br />
+
+<table>
+    <thead>
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var phone in ViewBag.Phones)
+            {
+                <tr>
+                    <td>@phone.Model</td>
+                    <td>@phone.Manufacturer</td>
+                    <td>@phone.Price</td>
+                    <td><a href="/Home/Buy?id=@phone.Id">Купить</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<br />
+
+<a href="/Home/GetPurchases">Посмотреть все заказы</a>
